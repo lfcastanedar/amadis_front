@@ -1,0 +1,61 @@
+.search-container {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .search-form {
+    margin-bottom: 0;
+  }
+  
+  .card {
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-header {
+    background: linear-gradient(to right, #4b6cb7, #182848);
+  }
+  
+  .card-header h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #4b6cb7;
+    border-color: #4b6cb7;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3a5a9f;
+    border-color: #3a5a9f;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .col-md-4 .d-flex {
+      margin-top: 1rem;
+    }
+  }

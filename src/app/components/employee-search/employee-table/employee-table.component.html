@@ -1,0 +1,46 @@
+<div class="employee-table-container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3>Employee Results <span class="badge bg-primary ms-2">{{ employees.length }}</span></h3>
+      <div class="btn-group">
+        <button class="btn btn-outline-primary btn-sm" (click)="onExport()">
+          <i class="bi bi-download me-1"></i> Export
+        </button>
+        <button class="btn btn-outline-secondary btn-sm" (click)="onPrint()">
+          <i class="bi bi-printer me-1"></i> Print
+        </button>
+      </div>
+    </div>
+    
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Annual Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees" class="employee-row">
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.employee_name }}</td>
+            <td>{{ employee.employee_position || 'N/A' }}</td>
+            <td>{{ employee.employee_age }}</td>
+            <td>{{ employee.employee_salary | currency }}</td>
+            <td>{{ employee.employee_anual_salary | currency }}</td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-sm btn-outline-info" (click)="onViewDetails(employee)">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,39 @@
+.employee-table-container {
+    animation: slideIn 0.5s ease-in-out;
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .table-dark {
+    background: linear-gradient(to right, #343a40, #23272b);
+  }
+  
+  .employee-row {
+    transition: background-color 0.2s ease;
+  }
+  
+  .employee-row:hover {
+    background-color: rgba(75, 108, 183, 0.1) !important;
+  }
+  
+  .badge {
+    font-size: 0.8rem;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

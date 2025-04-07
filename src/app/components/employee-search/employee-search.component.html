@@ -1,0 +1,60 @@
+<div class="search-container">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h2 class="mb-0">Search Employees</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="searchForm" (ngSubmit)="onSearch()" class="search-form">
+          <div class="row align-items-end">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label for="employeeId" class="form-label">Employee ID</label>
+                <input
+                  type="text"
+                  id="employeeId"
+                  class="form-control"
+                  formControlName="employeeId"
+                  placeholder="Enter employee ID (leave empty for all employees)"
+                  [class.is-invalid]="searchForm.get('employeeId')?.invalid && searchForm.get('employeeId')?.touched"
+                />
+                <div class="invalid-feedback" *ngIf="searchForm.get('employeeId')?.errors?.['pattern']">
+                  Please enter only numbers for the employee ID.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary" [disabled]="loading || searchForm.invalid">
+                  <i class="bi bi-search me-1"></i> Search
+                </button>
+                <button type="button" class="btn btn-outline-secondary" (click)="onClear()">
+                  <i class="bi bi-x-circle me-1"></i> Clear
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <app-employee-table 
+      *ngIf="!loading && employees.length > 0" 
+      [employees]="employees" 
+      class="mt-4">
+    </app-employee-table>
+  
+    <div *ngIf="!loading && noResults" class="alert alert-info mt-4">
+      <i class="bi bi-info-circle me-2"></i> No employees found.
+    </div>
+
+    <ngx-spinner
+      bdColor="rgba(0, 0, 0, 0.8)"
+      size="medium"
+      color="#fff"
+      type="ball-clip-rotate-multiple"
+      [fullScreen]="false"
+      name="primary"
+    >
+      <p style="color: white">Loading...</p>
+    </ngx-spinner>
+  </div>
